@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PubHouse{% endblock %}
+
+{% block body %}
+    <h1>Edit PubHouse</h1>
+
+    {{ include('pub_house/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_pub_house_index') }}">back to list</a>
+
+    {{ include('pub_house/_delete_form.html.twig') }}
+{% endblock %}

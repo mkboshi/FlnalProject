@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Books_catalog{% endblock %}
+
+{% block body %}
+    <h1>Книги в выбранной области</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Дата выпуска</th>
+            <th>Издательство</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in book %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.year ? book.year|date('Y') : '' }}</td>
+                <td>{{ book.pub_house }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Книги в выбранной области пока не публиковались</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <button onclick="window.location.href = '/list'">Назад</button>
+
+{% endblock %}

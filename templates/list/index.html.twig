@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sort{% endblock %}
+
+{% block body %}
+    {% block menu %}
+    {% endblock %}
+
+    <br><br>
+    <form action="/list" method="get">
+        <label> Область: </label>
+        <select name="catalog" required>
+            {% for catalog in catalog %}
+                <option value="{{ catalog.id }}">{{ catalog.NameCatalog }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Показать">
+    </form>
+
+
+{% endblock %}

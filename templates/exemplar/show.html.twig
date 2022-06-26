@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exemplar{% endblock %}
+
+{% block body %}
+    <h1>{{ exemplar.book }}</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <td>{{ exemplar.id }}</td>
+        </tr>
+
+        <tr>
+            <th>Взята</th>
+            <td>{{ exemplar.dateIssue ? exemplar.dateIssue|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Сдана</th>
+            <td>{{ exemplar.dateReturne ? exemplar.dateReturne|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Читатель</th>
+            <td>{{ exemplar.id_reader }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_exemplar_index') }}">Вернуться</a>
+
+    <a href="{{ path('app_exemplar_edit', {'id': exemplar.id}) }}">Редактировать</a>
+
+    {{ include('exemplar/_delete_form.html.twig') }}
+{% endblock %}

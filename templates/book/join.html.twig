@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book{% endblock %}
+
+{% block body %}
+    <h1>Книга</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <td>{{ book.id }}</td>
+        </tr>
+        <tr>
+            <th>Название</th>
+            <td>{{ book.pub_house }}</td>
+        </tr>
+        <tr>
+            <th>Автор</th>
+            <td>{{ book.author }}</td>
+        </tr>
+        <tr>
+            <th>Дата выпуска</th>
+            <td>{{ book.year ? book.year|date('Y') : '' }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+{% endblock %}
